@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import { Text, View ,StyleSheet,TextInput,AppRegistry,TouchableOpacity} from 'react-native';
-
+import { Alert,Text, View ,Button,StyleSheet,TextInput,AppRegistry,TouchableOpacity} from 'react-native';
+// import Card from 'react-native-card-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
 export default class HelloWorldApp extends Component {
+  _onPressButton() {
+    Alert.alert('You tapped the button!')
+  }
   render() {
     return (
      <View style = {styles.container}>
-     
+     <Text style = {{fontSize: 40,marginBottom:85,color:"#fff",fontFamily:'sans-serif-light',fontStyle:'italic',alignItems:'center'}}>My Test App</Text>
+     <View style={{ width: 300, height: 220, flexDirection: 'column', backgroundColor:'white',justifyContent:'center',alignItems:'center', borderColor: '#fff',
+  borderRadius: 10,elevation: 10}}>
      <View>
-     <Text style={{color:'#fff',fontSize:22}}>Login/SignUp</Text>
+     <Text style={{color:'#31625c',fontSize:22}}>Login/SignUp</Text>
      </View>
      <View style={styles.loginContainer}>
             <View style ={styles.inputbar}>
@@ -52,32 +57,23 @@ export default class HelloWorldApp extends Component {
               </View>
           </View>
           <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-            <TouchableOpacity>
-              <Text style={{
-                  backgroundColor: '#0a1d32',
-                  padding:5,
-                  fontSize: 16,
-                  width:115,
-                  alignItems:'center',
-                  textAlign:'center',
-                  marginRight:10,
-                  height:40,
-                  color: '#fff'
-              }}>Register</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-            <Text style={{
-                  backgroundColor: 'white',
-                  padding:5,
-                  width:115,
-                  marginRight:10,
-                  alignItems:'center',
-                  textAlign:'center',
-                  fontSize: 16,
-                  height:40,
-                  color: '#31625c'
-              }}>Sign In</Text>
-            </TouchableOpacity>
+          <View style={styles.buttonContainerLogin}>
+              <Button 
+              onPress ={this._onPressButton}
+              title= "Login"
+              color = "#31625c"
+              ></Button>
+           </View>
+           <View style={styles.buttonContainerRegister}>
+              <Button 
+              onPress ={this._onPressButton}
+              title = "Register"
+              color = "#31625c"
+              
+              ></Button>
+           </View>
+            
+          </View>
           </View>
        </View>
     );
@@ -101,6 +97,28 @@ const styles = StyleSheet.create({
     borderBottomColor:'#ebebeb',
     marginBottom: 5,
     marginTop: 5
+  },
+  buttonContainerLogin:{
+    
+    padding:5,
+    fontSize: 16,
+    width:115,
+    alignItems:'center',
+    textAlign:'center',
+    marginRight:10,
+    height:40,
+    color: '#fff'
+  },
+  buttonContainerRegister:{
+    
+    padding:5,
+    fontSize: 16,
+    width:115,
+    alignItems:'center',
+    textAlign:'center',
+    marginRight:10,
+    height:40,
+    color: '#31625c'
   },
 
 inputbar: {
